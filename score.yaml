@@ -14,6 +14,12 @@ containers:
     image: # Set by pipeline
     variables:
       Hello: World
+      CoolVar: Thanks for all the fish !
+      DB_DATABASE: ${resources.db.name}
+      DB_USER: ${resources.db.username}
+      DB_PASSWORD: ${resources.db.password}
+      DB_HOST: ${resources.db.host}
+      DB_PORT: ${resources.db.port}
 
 resources:
   dns: # We need a DNS record to point to the service 
@@ -24,3 +30,5 @@ resources:
       host: ${resources.dns.host}
       path: /
       port: 80
+  db:
+    type: mysql
